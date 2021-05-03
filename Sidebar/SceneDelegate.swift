@@ -11,13 +11,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             let splitViewController = UISplitViewController(style: .doubleColumn)
+            splitViewController.primaryBackgroundStyle = .sidebar
             splitViewController.preferredDisplayMode = .oneBesideSecondary
-            splitViewController.presentsWithGesture = false
+            splitViewController.presentsWithGesture = true
             splitViewController.preferredSplitBehavior = .tile
-
+            splitViewController.preferredPrimaryColumnWidthFraction = 1/3
             splitViewController.setViewController(SidebarViewController(), for: .primary)
+            splitViewController.setViewController(UIViewController(), for: .secondary)
             splitViewController.setViewController(TabBarController(), for: .compact)
-
+            
+            
             window.rootViewController = splitViewController
             self.window = window
             window.makeKeyAndVisible()
