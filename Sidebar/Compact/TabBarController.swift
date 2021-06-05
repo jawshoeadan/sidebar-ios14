@@ -1,14 +1,13 @@
 import UIKit
 import SwiftUI
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate {
+class TabBarController: UITabBarController {
 
     private lazy var listenNowViewController = makeListenNowViewController()
     private lazy var browseViewController = makeBrowseViewController()
-    private lazy var radioViewController = RadioViewController().initRadioViewController()
+    private lazy var radioViewController = makeRadioViewController()
     private lazy var libraryViewController = makeLibraryViewController()
     private lazy var searchViewController = makeSearchViewController()
-    public var currentViewNumber = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,20 +16,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
                            radioViewController,
                            libraryViewController,
                            searchViewController]
-        self.selectedIndex = 1
-        self.delegate = self
-        
     }
 
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let selectedIndex = tabBarController.selectedIndex
-        print(selectedIndex)
-        Settings.instance.tabSelection = selectedIndex
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        selectedIndex = Settings.instance.tabSelection
+        selectedIndex = 0
     }
 
 }
@@ -54,7 +44,15 @@ private extension TabBarController {
     }
 
     private func makeRadioViewController() -> UINavigationController {
-        return RadioViewController().initRadioViewController()
+        let vc = UIHostingController(rootView: Text("Hello World!"))
+        vc.tabBarItem = UITabBarItem(title: "Radio",
+                                     image: UIImage(systemName: "dot.radiowaves.left.and.right"),
+                                     tag: 2)
+        let uiNC = UINavigationController(rootViewController: vc)
+        uiNC.navigationBar.topItem?.title = "Radio"
+        uiNC.navigationBar.prefersLargeTitles = true
+        uiNC.navigationItem.largeTitleDisplayMode = .automatic
+        return uiNC
     }
 
     private func makeLibraryViewController() -> UINavigationController {

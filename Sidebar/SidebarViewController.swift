@@ -7,31 +7,25 @@ class SidebarViewController: UIViewController {
     private var collectionView: UICollectionView! = nil
     private var secondaryViewControllers = [UINavigationController(rootViewController: ListenNowViewController()),
                                             UINavigationController(rootViewController: BrowseViewController()),
-                                            RadioViewController().initRadioViewController(),
+                                            UINavigationController(rootViewController: RadioViewController()),
                                             UINavigationController(rootViewController: SearchViewController())]
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CURRENT NUMBER:  + \(TabBarController().currentViewNumber)")
         navigationItem.title = "Music"
         navigationController?.navigationBar.prefersLargeTitles = true
         configureHierarchy()
         configureDataSource()
         addNavigationButtons()
         setInitialSecondaryView()
-        collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.bottom)
-        splitViewController?.setViewController(secondaryViewControllers[Settings.instance.tabSelection], for: .secondary)
     }
-    override func viewDidAppear(_ animated: Bool) {
-        collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.bottom)
-        splitViewController?.setViewController(secondaryViewControllers[Settings.instance.tabSelection], for: .secondary)
-    }
+
     private func setInitialSecondaryView() {
         
-        collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0),
+        collectionView.selectItem(at: IndexPath(row: 0, section: 0),
                                   animated: false,
                                   scrollPosition: UICollectionView.ScrollPosition.bottom)
-        splitViewController?.setViewController(secondaryViewControllers[Settings.instance.tabSelection], for: .secondary)
+        splitViewController?.setViewController(secondaryViewControllers[0], for: .secondary)
         collectionView.setContentOffset(CGPoint(x: 0, y: -200), animated: false)
     }
 
@@ -141,10 +135,8 @@ extension SidebarViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.section == 0 else { return }
         splitViewController?.setViewController(secondaryViewControllers[indexPath.row], for: .secondary)
-        print(indexPath.row)
-        Settings.instance.tabSelection = indexPath.row
     }
-    
+
 }
 
 // MARK: - Structs and sample data
