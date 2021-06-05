@@ -1,5 +1,4 @@
 import UIKit
-import SwiftUI
 
 class SidebarViewController: UIViewController {
     
@@ -21,12 +20,10 @@ class SidebarViewController: UIViewController {
     }
 
     private func setInitialSecondaryView() {
-        
         collectionView.selectItem(at: IndexPath(row: 0, section: 0),
                                   animated: false,
-                                  scrollPosition: UICollectionView.ScrollPosition.bottom)
+                                  scrollPosition: UICollectionView.ScrollPosition.centeredVertically)
         splitViewController?.setViewController(secondaryViewControllers[0], for: .secondary)
-        collectionView.setContentOffset(CGPoint(x: 0, y: -200), animated: false)
     }
 
     private func addNavigationButtons() {

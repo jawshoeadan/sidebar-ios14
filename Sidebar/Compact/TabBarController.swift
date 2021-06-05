@@ -1,5 +1,4 @@
 import UIKit
-import SwiftUI
 
 class TabBarController: UITabBarController {
 
@@ -44,15 +43,11 @@ private extension TabBarController {
     }
 
     private func makeRadioViewController() -> UINavigationController {
-        let vc = UIHostingController(rootView: Text("Hello World!"))
+        let vc = RadioViewController()
         vc.tabBarItem = UITabBarItem(title: "Radio",
                                      image: UIImage(systemName: "dot.radiowaves.left.and.right"),
                                      tag: 2)
-        let uiNC = UINavigationController(rootViewController: vc)
-        uiNC.navigationBar.topItem?.title = "Radio"
-        uiNC.navigationBar.prefersLargeTitles = true
-        uiNC.navigationItem.largeTitleDisplayMode = .automatic
-        return uiNC
+        return UINavigationController(rootViewController: vc)
     }
 
     private func makeLibraryViewController() -> UINavigationController {

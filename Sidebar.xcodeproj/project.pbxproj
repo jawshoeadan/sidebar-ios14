@@ -21,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		028A5CE8263FA16A00FD538E /* Sidebar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sidebar.entitlements; sourceTree = "<group>"; };
 		6C08664D24A2FB91009174A0 /* Sidebar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sidebar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C08665024A2FB91009174A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C08665224A2FB91009174A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +66,6 @@
 		6C08664F24A2FB91009174A0 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
-				028A5CE8263FA16A00FD538E /* Sidebar.entitlements */,
 				6C08665024A2FB91009174A0 /* AppDelegate.swift */,
 				6C08665224A2FB91009174A0 /* SceneDelegate.swift */,
 				6C08666524A2FC0B009174A0 /* SidebarViewController.swift */,
@@ -308,9 +306,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Sidebar/Sidebar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A72ZC8AJ5X;
+				DEVELOPMENT_TEAM = SJF85Q6EJ9;
 				INFOPLIST_FILE = Sidebar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -318,9 +315,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.marcosatanaka.Sidebar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -329,9 +325,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Sidebar/Sidebar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A72ZC8AJ5X;
+				DEVELOPMENT_TEAM = SJF85Q6EJ9;
 				INFOPLIST_FILE = Sidebar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -339,9 +334,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.marcosatanaka.Sidebar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
