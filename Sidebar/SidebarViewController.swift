@@ -19,22 +19,20 @@ class SidebarViewController: UIViewController {
         configureDataSource()
         addNavigationButtons()
         setInitialSecondaryView()
-        collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.centeredVertically)
+        collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.bottom)
         splitViewController?.setViewController(secondaryViewControllers[Settings.instance.tabSelection], for: .secondary)
-        collectionView.setContentOffset(CGPoint(x: 0, y: -50), animated: false)
     }
     override func viewDidAppear(_ animated: Bool) {
-        collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.centeredVertically)
+        collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.bottom)
         splitViewController?.setViewController(secondaryViewControllers[Settings.instance.tabSelection], for: .secondary)
-         collectionView.setContentOffset(CGPoint(x: 0, y: -50), animated: false)
     }
     private func setInitialSecondaryView() {
         
         collectionView.selectItem(at: IndexPath(row: Settings.instance.tabSelection, section: 0),
                                   animated: false,
-                                  scrollPosition: UICollectionView.ScrollPosition.centeredVertically)
+                                  scrollPosition: UICollectionView.ScrollPosition.bottom)
         splitViewController?.setViewController(secondaryViewControllers[Settings.instance.tabSelection], for: .secondary)
-        collectionView.setContentOffset(CGPoint(x: 0, y: -50), animated: false)
+        collectionView.setContentOffset(CGPoint(x: 0, y: -200), animated: false)
     }
 
     private func addNavigationButtons() {
